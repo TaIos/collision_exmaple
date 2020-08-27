@@ -1,0 +1,50 @@
+
+\documentclass{memoir}
+\pagenumbering{gobble}
+
+
+
+% další balíčky
+\usepackage{graphicx}
+\usepackage{minted}
+\usepackage{hyperref}
+
+
+
+\begin{document}
+
+    \textbf{\textcolor{red}{Mr Red}}
+    \begin{minted}[escapeinside=@@, linenos]{text}
+    that.doQuery({
+    'op': 'checkAndConfirmONStayDuration',
+    'data': JSON.stringify(@\textcolor{red}{aClosingRNWagons}@)
+    }, @$\ldots$@
+    \end{minted}
+
+    \vspace*{10pt}
+
+    \textbf{\textcolor{blue}{Mr Blue}}
+    \begin{minted}[escapeinside=@@, linenos]{text}
+    that.doQuery({
+    'op': 'checkAndConfirmONStayDuration',
+    'data': JSON.stringify(@\textcolor{blue}{aClosingRNs}@)
+    }, @$\ldots$@
+    \end{minted}
+
+    \vspace*{10pt}
+
+    \textbf{\textcolor{blue}{Mr Blue}} vs \textbf{\textcolor{red}{Mr Red}}
+    \begin{minted}[escapeinside=@@, linenos]{text}
+    that.setBusy("busy", true)
+    that.doQuery({
+    'op' : 'checkAndConfirmONStayDuration',
+    @\textbf{<<<<<<< HEAD}@
+    'data' : JSON.stringify(@\textcolor{blue}{aClosingRNs}@)
+    @\textbf{=======}@
+    'data' : JSON.stringify(@\textcolor{red}{aClosingRNWagons}@)
+    @\textbf{>>>>>>> ae53632d1be912ba3b69e5c39a452121751c0acf}@
+    }, @$\ldots$@
+    \end{minted}
+
+
+\end{document}
